@@ -22,6 +22,9 @@ body{
 	padding-left: 40px;
 	padding-right: 40px;
 }
+#top-space{
+	margin-bottom: -60px;
+}
 .sidebar-brand{	
 	margin-bottom: 15px;
 }
