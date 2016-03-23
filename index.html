@@ -28,18 +28,18 @@
 		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800&subset=latin,greek">
 		<link rel="stylesheet" type="text/css" href="assets/css/theme.css">
 	</head>
-	<body>
+	<body data-spy="scroll" data-target="#scrollspy-sidebar">
 		<div id="wrapper">
 
         <!-- Sidebar -->
-        <div id="sidebar-wrapper" >
-        	<div id="scrollspy-sidebar">
-	            <ul class="sidebar-nav">
-	                <li class="sidebar-brand">
-	                    <a href="#">
-	                        <img id="logo" class="img-responsive" src="assets/img/logo-dark.png" alt="logo"> 
-	                    </a>
-	                </li>
+        <div id="sidebar-wrapper" >        
+        	<div class="sidebar-brand">
+                <a href="#">
+                    <img id="logo" class="img-responsive" src="assets/img/logo-dark.png" alt="logo"> 
+                </a>
+            </div> 
+        	<nav id="scrollspy-sidebar">
+	            <ul class="nav sidebar-nav top-space">
 	                <li>
 	                    <a href="#about">About</a>
 	                </li>
@@ -48,7 +48,7 @@
 	                </li>
 	                <li>
 	                    <a href="#vehicles">Vehicles</a>
-	                    <ul class="sidebar-subnav">
+	                    <ul id="vehicles-subnav" class="nav sidebar-subnav" style="display: none;">
 	                    	<li>
 	                    		<a href="#vehicles-get">GET Vehicles</a>
 	                    	</li>
@@ -62,7 +62,7 @@
 	                </li>
 	                <li>
 	                    <a href="#">Trips</a>
-	                    <ul class="sidebar-subnav">
+	                    <ul class="sidebar-subnav" style="display: none;">
 	                    	<li>
 	                    		<a href="#">GET Trip</a>
 	                    	</li>
@@ -81,12 +81,12 @@
 	                    <a href="#">Contact</a>
 	                </li>
 	            </ul>
-           	</div> 
+           	</nav>          	
         </div>
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
-        <div id="page-content-wrapper" data-spy="scroll" data-target="#sidebar-wrapper">
+        <div id="page-content-wrapper">
             <div class="container-fluid">
             	<div id="top-space"></div>
                 <div id="about" class="row">

@@ -28,3 +28,13 @@ $("#menu-toggle").click(function(e) {
 	 	maximized=true;
     }
 });
+$(window).scroll(function(){
+    if(		$(this).scrollTop() >= $('#vehicles-get').offset().top 
+    	|| 	$(this).scrollTop() >= $('#vehicle-get').offset().top 
+    	|| 	$(this).scrollTop() >= $('#vehicle-trips').offset().top
+    	||	$(this).scrollTop() >= $('#vehicles').offset().top){
+      $('#vehicles-subnav').slideDown();
+    } else{
+    	$('#vehicles-subnav').fadeOut();
+    }
+});

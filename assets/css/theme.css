@@ -52,7 +52,7 @@ body{
 }
 .sidebar-subnav li{
 	line-height: 25px;
-	margin-left: -25px;
+	margin-left: 25px;
 }
 .row{
 	margin-top: 60px;
@@ -87,4 +87,25 @@ pre{
 .status .s50x{
 	color: #6E19CE;
 	font-weight: 800;
+}
+#scrollspy-sidebar .top-space{	
+	margin-top: 70px;
+}
+#scrollspy-sidebar .nav{
+	padding: 0px;
+}
+.sidebar-nav li{
+	border-left: 10px solid rgba(0,0,0,0);
+}
+.sidebar-nav .active{
+	border-left: 10px solid #555;
+	background-color: #111;
+}
+.sidebar-subnav li{
+	border-left: 0px;
+	border-right: 5px solid rgba(0,0,0,0);
+}
+.sidebar-subnav .active{
+	border-left: 0px;
+	border-right: 5px solid #aaa;
 }
