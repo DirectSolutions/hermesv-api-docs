@@ -25,10 +25,160 @@
 		<link rel="stylesheet" type="text/css" href="vendor/bootstrap-3.3.6-dist/css/bootstrap-theme.min.css">
 		<link rel="stylesheet" type="text/css" href="vendor/font-awesome-4.5.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="vendor/simple-sidebar/simple-sidebar.min.css">
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800&subset=latin,greek">
 		<link rel="stylesheet" type="text/css" href="assets/css/theme.css">
 	</head>
 	<body>
+		<div id="wrapper">
 
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper" >
+        	<div id="scrollspy-sidebar">
+	            <ul class="sidebar-nav">
+	                <li class="sidebar-brand">
+	                    <a href="#">
+	                        <img id="logo" class="img-responsive" src="assets/img/logo-dark.png" alt="logo"> 
+	                    </a>
+	                </li>
+	                <li>
+	                    <a href="#about">About</a>
+	                </li>
+	                <li>
+	                    <a href="#authentication">Authentication</a>                    
+	                </li>
+	                <li>
+	                    <a href="#vehicles">Vehicles</a>
+	                    <ul class="sidebar-subnav">
+	                    	<li>
+	                    		<a href="#vehicles-get">GET Vehicles</a>
+	                    	</li>
+	                    	<li>
+	                    		<a href="#">GET Vehicle</a>
+	                    	</li>
+	                    	<li>
+	                    		<a href="#">GET Vehicle Trips</a>
+	                    	</li>
+	                    </ul>
+	                </li>
+	                <li>
+	                    <a href="#">Trips</a>
+	                    <ul class="sidebar-subnav">
+	                    	<li>
+	                    		<a href="#">GET Trip</a>
+	                    	</li>
+	                    	<li>
+	                    		<a href="#">GET Trip Points</a>
+	                    	</li>
+	                    </ul>
+	                </li>
+	                <li>
+	                    <a href="#">FAQ</a>
+	                </li>
+	                <li>
+	                    <a href="#">Version</a>
+	                </li>
+	                <li>
+	                    <a href="#">Contact</a>
+	                </li>
+	            </ul>
+           	</div> 
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper" data-spy="scroll" data-target="#sidebar-wrapper">
+            <div class="container-fluid">
+                <div id="about" class="row">
+                	<div class="col-md-6">
+                		<h1>About Hermes-V API</h1>
+	                	<p>
+	                		Welcome to the documentation for the Hermes-V API. 
+	                	</p>
+	                	<p>
+	                		By using the Hermes-V API you can get information on vehicles and trips obtained from Hermes-V devices.
+	                	</p>
+	                	<p>
+	                		For every request there is an example call in <strong>SHELL</strong> and <strong>Javascript</strong>.
+	                	</p>
+                	</div>
+                	
+             	</div>
+                <div id="authentication" class="row">                	
+            		<h1>Authentication</h1>
+                	<div class="col-md-6">
+	                	<p>
+	                		Hermes-V uses a security token to allow access to the API. 
+	                	</p>
+	                	<p>
+	                		The token must be present in all API requests  in a header that looks like the following:
+	                	</p>
+	                	<pre class="bg-info">"token=xxx"</pre>
+	                	<p>
+	                		For the request you have to enter your <strong>USERNAME</strong>,  <strong>PASSWORD</strong> and  <strong>COMPANY</strong>
+	                	</p>
+	                	<h3>On SUCCESS</h3>  
+	                	<pre class="bg-success">{"success":true,"token":TOKEN}</pre>  
+	                	<h3>On FAILURE</h3>  
+	                	<pre class="bg-danger">{"success":false,"error":"Bad credentials"}</pre>             	
+                	</div>
+                	<div class="col-md-6">
+                		<h3>Generate Code</h3>
+                		<h3>Shell</h3>
+	                	<pre class="shell">curl "http://api.hermes-v.com/api/v1/" -d "username=USERNAME&password=PASSWORD&company=COMPANY"</pre>
+	                	<h3>Javascript</h3>	                	
+	                	<pre></pre>
+                	</div>                	
+             	</div>
+             	<div id="vehicles" class="row">
+            		<h1>Vehicles</h1>
+        		</div>
+                <div id="vehicles-get" class="row">
+            		<h2><strong>GET</strong> Vehicles</h2>
+                	<div class="col-md-6">
+	                	<p>
+	                		You can get all Vehicles for the <strong>TOKEN</strong> you provide in the header of your request.
+	                	</p>
+	                	<p>
+	                		No request body required,
+	                	</p>	                	
+	                	<h3>On SUCCESS</h3>  
+	                	<pre class="bg-success">{
+	"success":"true",
+	"vehicles":[
+	   {
+	      "id":ID,
+	      "manufID":MANUFID, ...
+	   },
+	   {
+	      "id":ID,
+	      "manufID":MANUFID, ...
+	   },
+	   .
+	   .
+	   .,
+	   {
+	      "id":ID,
+	      "manufID":MANUFID, ...
+	   }
+	]   
+}
+	                	</pre>
+	                	<h3>On FAILURE</h3>  
+	                	<pre class="bg-danger">{"success":false,"error":"No Vehicles Found"}</pre>             	
+                	</div>
+                	<div class="col-md-6">
+                		<h3>Shell</h3>
+	                	<pre class="shell">curl "http://api.hermes-v.com/api/v1/vehicles/" -H "Accept: application/json" -H "Token: TOKEN"</pre>
+	                	<h3>Javascript</h3>	                	
+	                	<pre></pre>
+                	</div>                	
+             	</div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
 		<script type="text/javascript" src="vendor/jquery-2.2.1/jquery.min.js"></script>
 		<script type="text/javascript" src="vendor/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="assets/js/scripts.js"></script>
