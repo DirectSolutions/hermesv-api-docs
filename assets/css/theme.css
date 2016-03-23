@@ -14,3 +14,36 @@
  *
  * Written by John Prantalos
 **/
+body{
+	font-family: 'Open Sans', sans-serif;	
+  	position: relative;
+}
+#logo{
+	padding-left: 40px;
+	padding-right: 40px;
+}
+.sidebar-brand{	
+	margin-bottom: 15px;
+}
+.sidebar-subnav{
+    list-style-type: none;
+    font-size: 12px;
+}
+.sidebar-subnav li{
+	line-height: 25px;
+	margin-left: -25px;
+}
+.row{
+	margin-top: 60px;
+}
+pre{
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -o-pre-wrap;
+	word-wrap: break-word;
+}
+.shell{
+	background-color: #333;
+	color: #59DA62;
+	border: 1px solid #000;
+}
