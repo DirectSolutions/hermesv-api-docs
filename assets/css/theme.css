@@ -22,6 +22,11 @@ body{
 	padding-left: 40px;
 	padding-right: 40px;
 }
+#toggle-sidebar{
+	position: fixed;
+	right: 10px;
+	top: 10px;
+}
 #top-space{
 	margin-bottom: -60px;
 }
@@ -49,4 +54,24 @@ pre{
 	background-color: #333;
 	color: #59DA62;
 	border: 1px solid #000;
+}
+.status{
+	font-weight: 700;
+	font-size: 20px;
+}
+.status .s20x{
+	color: #19CE33;
+	font-weight: 800;
+}
+.status .s30x{
+	color: #CE7719;
+	font-weight: 800;
+}
+.status .s40x{
+	color: #CE3B19;
+	font-weight: 800;
+}
+.status .s50x{
+	color: #6E19CE;
+	font-weight: 800;
 }

@@ -53,10 +53,10 @@
 	                    		<a href="#vehicles-get">GET Vehicles</a>
 	                    	</li>
 	                    	<li>
-	                    		<a href="#">GET Vehicle</a>
+	                    		<a href="#vehicle-get">GET Vehicle</a>
 	                    	</li>
 	                    	<li>
-	                    		<a href="#">GET Vehicle Trips</a>
+	                    		<a href="#vehicle-trips">GET Vehicle Trips</a>
 	                    	</li>
 	                    </ul>
 	                </li>
@@ -117,15 +117,24 @@
 	                	<p>
 	                		For the request you have to enter your <strong>USERNAME</strong>,  <strong>PASSWORD</strong> and  <strong>COMPANY</strong>
 	                	</p>
-	                	<h3>On SUCCESS</h3>  
+	                	<h3>On SUCCESS</h3>
+	                	<div class="status">Status <span class="s20x">200</span></div>
 	                	<pre class="bg-success">{"success":true,"token":TOKEN}</pre>  
-	                	<h3>On FAILURE</h3>  
-	                	<pre class="bg-danger">{"success":false,"error":"Bad credentials"}</pre>             	
+	                	<h3>On FAILURE</h3> 
+	                	<div class="status">Status <span class="s40x">400</span></div> 
+	                	<pre class="bg-danger">{"success":false,"error":"Invalid Number of Arguments"}</pre> 
+	                	<p>You have entered more or less than the 3 arguments required</p>
+	                	<div class="status">Status <span class="s40x">401</span></div> 
+	                	<pre class="bg-danger">{"success":false,"error":"Bad credentials"}</pre>
+	                	<p>You have entered wrong credentials or the credentials you used are not available anymore</p>
+	                	<div class="status">Status <span class="s40x">403</span></div> 
+	                	<pre class="bg-danger">{"success":false,"error":"User not Active"}</pre>
+	                	<p>The account that is bound to the TOKEN provided is deactivated</p>            	
                 	</div>
                 	<div class="col-md-6">
                 		<h3>Generate Code</h3>
                 		<h3>Shell</h3>
-	                	<pre class="shell">curl "http://api.hermes-v.com/api/v1/" -d "username=USERNAME&password=PASSWORD&company=COMPANY"</pre>
+	                	<pre class="shell">curl "http://api.hermes-v.com/api/v1/authentication" -d "username=USERNAME&password=PASSWORD&company=COMPANY"</pre>
 	                	<h3>Javascript</h3>	                	
 	                	<pre></pre>
                 	</div>                	
@@ -322,9 +331,10 @@
 	                		You can get all Vehicles for the <strong>TOKEN</strong> you provide in the header of your request.
 	                	</p>
 	                	<p>
-	                		No request body required,
+	                		No request body required.
 	                	</p>	                	
-	                	<h3>On SUCCESS</h3>  
+	                	<h3>On SUCCESS</h3> 
+	                	<div class="status">Status <span class="s20x">200</span></div>
 	                	<pre class="bg-success">{
 	"success":"true",
 	"vehicles":[
@@ -346,8 +356,13 @@
 	]   
 }
 	                	</pre>
-	                	<h3>On FAILURE</h3>  
-	                	<pre class="bg-danger">{"success":false,"error":"No Vehicles Found"}</pre>             	
+	                	<h3>On FAILURE</h3>
+	                	<div class="status">Status <span class="s40x">404</span></div>
+	                	<pre class="bg-danger">{"success":false,"error":"No Vehicles Found"}</pre> 
+	                	<p>No Vehicles found for the account bound to the given TOKEN</p>
+	                	<div class="status">Status <span class="s50x">500</span></div>
+	                	<pre class="bg-danger">{"success":false,"error":"Internal server error"}</pre>
+	                	<p>Something went wrong on our server.</p>          	
                 	</div>
                 	<div class="col-md-6">
                 		<h3>Shell</h3>
@@ -356,11 +371,94 @@
 	                	<pre></pre>
                 	</div>                	
              	</div>
+             	<div id="vehicle-get" class="row">
+            		<h2><strong>GET</strong> Vehicle</h2>
+                	<div class="col-md-6">
+	                	<p>
+	                		You can get info for a specific vehicle. The <strong>TOKEN</strong> you provide must have access to the specific vehicle
+	                	</p>
+	                	<p>
+	                		No request body required.
+	                	</p>
+	                	<h3>URL Parameters</h3>
+	                	<table class="table table-bordered table-hover">
+	            			<thead>
+	            				<tr>
+	            					<th>Parameter</th>
+	            					<th>Description</th>
+	            				</tr>
+	            			</thead>
+	            			<tbody>
+								<tr>
+									<td>:id</td>
+									<td>The id of the vehicle you want to retrieve</td>
+								</tr>
+							</tbody>
+						</table>                	
+	                	<h3>On SUCCESS</h3> 
+	                	<div class="status">Status <span class="s20x">200</span></div>
+	                	<pre class="bg-success">{
+	"success":"true",
+	"vehicle":{
+		"id":00,
+	  	"manufID":0000,
+	  	"manufCode":1,
+	  	"deviceIMEI":"99000000000000",
+	  	"name":"ILION FIAT",
+	  	"vin":"",
+	  	"year":2009,
+	  	"make":null,
+	  	"model":null,
+	  	"color":"16777215",
+	  	"plate":"KHO5207",
+	  	"filter":"KHO5207ILIONFIAT1286677102560675ILION",
+	  	"groupID":8,
+	  	"system":"ILION",
+	  	"newErrors":"",
+	  	"lastSignal":"20160323102459",
+	  	"timeZone":"Europe/Athens",
+	  	"lng":23.6908166,
+	 	"lat":38.010955,
+	  	"location":"Σαρανταπόρου, Municipality of Peristeri",
+	 	"tripScore":0.93,
+	  	"speed":0,
+	  	"tripNo":343,
+	 	"rpm":922,
+	  	"fuelLevel":0.57,
+	  	"batteryLevel":0,
+	  	"movingStatus":3,
+	  	"sensorStatus":"N",
+	  	"toDayTrips":7,
+	  	"yesterdayTrips":9,
+	  	"sensors":null,
+	  	"groupName":"I.X."
+	} 
+}
+	                	</pre>
+	                	<h3>On FAILURE</h3>
+	                	<div class="status">Status <span class="s40x">404</span></div>
+	                	<pre class="bg-danger">{"success":false,"error":"Could not find any vehicle with id=00"}</pre> 
+	                	<p>No Vehicle found for the account bound to the given TOKEN</p>
+	                	<div class="status">Status <span class="s50x">500</span></div>
+	                	<pre class="bg-danger">{"success":false,"error":"Internal server error"}</pre>
+	                	<p>Something went wrong on our server.</p>          	
+                	</div>
+                	<div class="col-md-6">
+                		<h3>Shell</h3>
+	                	<pre class="shell">curl "http://api.hermes-v.com/api/v1/vehicles/:id" -H "Accept: application/json" -H "Token: TOKEN"</pre>
+	                	<h3>Javascript</h3>	                	
+	                	<pre></pre>
+                	</div>                	
+             	</div>
             </div>
         </div>
         <!-- /#page-content-wrapper -->
 
-    </div>
+    </div>    
+	<div id="toggle-sidebar">
+		<a href="#menu-toggle" id="menu-toggle"><i id="expand-icon" class="fa fa-expand fa-3x"></i>
+</a>
+	</div>
     <!-- /#wrapper -->
 		<script type="text/javascript" src="vendor/jquery-2.2.1/jquery.min.js"></script>
 		<script type="text/javascript" src="vendor/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>

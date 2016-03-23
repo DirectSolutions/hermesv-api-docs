@@ -14,7 +14,17 @@
  *
  * Written by John Prantalos
 **/
+maximized=false;
 $("#menu-toggle").click(function(e) {
     e.preventDefault();
     $("#wrapper").toggleClass("toggled");
+    if(maximized){
+	 	$("#expand-icon").removeClass("fa-compress");
+    	$("#expand-icon").addClass("fa-expand");
+    	maximized=false;
+    }else{
+	 	$("#expand-icon").removeClass("fa-expand");
+	 	$("#expand-icon").addClass("fa-compress");
+	 	maximized=true;
+    }
 });
