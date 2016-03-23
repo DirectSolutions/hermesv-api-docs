@@ -38,3 +38,12 @@ $(window).scroll(function(){
     	$('#vehicles-subnav').fadeOut();
     }
 });
+$(window).scroll(function(){
+    if(		$(this).scrollTop() >= $('#trip-get').offset().top 
+    	|| 	$(this).scrollTop() >= $('#trip-get-points').offset().top 
+    	|| 	$(this).scrollTop() >= $('#trips').offset().top){
+      $('#trips-subnav').slideDown();
+    } else{
+    	$('#trips-subnav').fadeOut();
+    }
+});
