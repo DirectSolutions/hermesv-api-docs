@@ -27,6 +27,9 @@ h2{
 	border-bottom: 2px solid #555;
 	padding: 10px;
 }
+p{
+	font-size: 18px;
+}
 body{
 	font-family: 'Open Sans', sans-serif;	
   	position: relative;
@@ -89,7 +92,7 @@ pre{
 	font-weight: 800;
 }
 #scrollspy-sidebar .top-space{	
-	margin-top: 70px;
+	margin-top: 80px;
 }
 #scrollspy-sidebar .nav{
 	padding: 0px;
