@@ -472,7 +472,7 @@
 	                		You can get all Vehicles for the <strong>TOKEN</strong> you provide in the header of your request.
 	                	</p>
 	                	<p>
-	                		No request body required.
+	                		The <strong>TOKEN</strong> you provide must have access to vehicles or a <span class="s40x">404 error</span> occurs.
 	                	</p>
 	                	<h3>URL Parameters</h3>
 	                	<table class="table table-bordered table-hover">
@@ -531,10 +531,10 @@
             		<h2><strong>GET</strong> Vehicle</h2>
                 	<div class="col-md-6">
 	                	<p>
-	                		You can get info for a specific vehicle. The <strong>TOKEN</strong> you provide must have access to the specific vehicle
+	                		You can get information of a vehicle with a specific <strong>ID</strong>. 
 	                	</p>
 	                	<p>
-	                		No request body required.
+	                		The <strong>TOKEN</strong> you provide must have access to the specific vehicle or a <span class="s40x">404 error</span> occurs.
 	                	</p>
 	                	<h3>URL Parameters</h3>
 	                	<table class="table table-bordered table-hover">
@@ -614,10 +614,10 @@
             		<h2><strong>GET</strong> Vehicle Trips</h2>
                 	<div class="col-md-6">
 	                	<p>
-	                		You can get info for a specific vehicle. The <strong>TOKEN</strong> you provide must have access to the specific vehicle
+	                		You can get all the trips of the vehicle with a specific <strong>ID</strong> on a date range starting from <strong>DATE_START</strong> and ending at <strong>DATE_STOP</strong>. 
 	                	</p>
 	                	<p>
-	                		You have to enter a date range in the body of the request. If you do not do so, a 400 error occurs
+	                		If you do not enter dates or enter them incorrectly, a <span class="s40x">400 error</span> occurs.
 	                	</p>
 	                	<h3>URL Parameters</h3>
 	                	<table class="table table-bordered table-hover">
@@ -815,6 +815,82 @@
 					         		</tr>
 								</tbody>
 							</table>
+						</div>
+						<div class="col-md-6">
+							<h3>
+	            				A Trip Points Object contains:
+	            			</h3>
+		            		<table class="table table-bordered table-hover">
+		            			<thead>
+		            				<tr>
+		            					<th>Attribute</th>
+		            					<th>Type</th>
+		            					<th>Description</th>
+		            				</tr>
+		            			</thead>
+		            			<tbody>
+									<tr>
+										<td>manufID</td>
+										<td>int(11)</td>
+										<td></td>
+									</tr>
+						         	<tr>
+						         		<td>tripID</td>
+										<td>int(11)</td>
+										<td></td>
+					         		</tr>
+						         	<tr>
+						         		<td>manufCode</td>
+										<td>int(8)</td>
+										<td></td>
+					         		</tr>
+						         	<tr>
+						         		<td>time</td>
+										<td>varchar(14)</td>
+										<td></td>
+					         		</tr>
+						         	<tr>
+						         		<td>lat</td>
+										<td>double</td>
+										<td></td>
+					         		</tr>
+						        	<tr>
+						        		<td>lng</td>
+										<td>double</td>
+										<td></td>
+					        		</tr>
+						         	<tr>
+						         		<td>speed</td>
+										<td>int(11)</td>
+										<td></td>
+					         		</tr>
+						         	<tr>
+						         		<td>fuelLevel</td>
+										<td>double</td>
+										<td></td>
+					         		</tr>
+						         	<tr>
+						         		<td>rpm</td>
+										<td>int(11)</td>
+										<td></td>
+					         		</tr>
+						         	<tr>
+						         		<td>batteryVoltage</td>
+										<td>double</td>
+										<td></td>
+					         		</tr>
+						         	<tr>
+						         		<td>acceleration</td>
+										<td>int(11)</td>
+										<td></td>
+					         		</tr>
+						         	<tr>
+						         		<td>sensor</td>
+										<td>varchar(2)</td>
+										<td></td>
+					         		</tr>
+								</tbody>
+							</table>
 						</div>					
 					</div>		
         		</div>
@@ -823,10 +899,10 @@
             		<div class="row">
 	            		<div class="col-md-6">
 		                	<p>
-		                		You can get info for a specific vehicle. The <strong>TOKEN</strong> you provide must have access to the specific vehicle
+		                		You can get information for a trip by providing a trip <strong>ID</strong> and the authorization <strong>TOKEN</strong>.
 		                	</p>
 		                	<p>
-		                		You have to enter a date range in the body of the request. If you do not do so, a 400 error occurs
+		                		If you request a trip that is not bound on a vehicle your <strong>TOKEN</strong> has access to, then a <span class="s40x">404 error</span> occurs.
 		                	</p>
 		                	<h3>URL Parameters</h3>
 		                	<table class="table table-bordered table-hover">
@@ -844,14 +920,6 @@
 									<tr>
 										<td>ID</td>
 										<td>The id of the vehicle you want to retrieve</td>
-									</tr>
-									<tr>
-										<td>DATE_START</td>
-										<td>Date to show trips from. (YYYY-MM-DD+hh:mm:ss)</td>
-									</tr>
-									<tr>
-										<td>DATE_STOP</td>
-										<td>Date to show trips up to. (YYYY-MM-DD+hh:mm:ss)</td>
 									</tr>
 								</tbody>
 							</table>                	
@@ -889,7 +957,7 @@
 	                	</div>
 	                	<div class="col-md-6">
 	                		<h3>Shell</h3>
-		                	<pre class="shell">curl "http://api.hermes-v.com/api/v1/trips/ID" -H "Accept: application/json" -H "Token: TOKEN"</pre>
+		                	<pre class="shell">curl "http://api.hermes-v.com/api/v1/trips/<span>ID</span>" -H "Accept: application/json" -H "Token: <span>TOKEN</span>"</pre>
 		                	<h3>Javascript</h3>	                	
 		                	<pre></pre>
 	                	</div>  
@@ -899,8 +967,67 @@
             		<h2><strong>GET</strong> Trip Points</h2>
             		<div class="row">
 	            		<div class="col-md-6">
-	            			
-	        			</div>
+		                	<p>
+		                		You can get the GPS points for a trip by providing a trip <strong>ID</strong> and the authorization <strong>TOKEN</strong>.
+		                	</p>
+		                	<p>
+		                		If you request a trip that is not bound on a vehicle your <strong>TOKEN</strong> has access to, then a <span class="s40x">404 error</span> occurs.
+		                	</p>
+		                	<h3>URL Parameters</h3>
+		                	<table class="table table-bordered table-hover">
+		            			<thead>
+		            				<tr>
+		            					<th>Parameter</th>
+		            					<th>Description</th>
+		            				</tr>
+		            			</thead>
+		            			<tbody>
+									<tr>
+										<td>TOKEN</td>
+										<td>The token you got via authentication</td>
+									</tr>
+									<tr>
+										<td>ID</td>
+										<td>The id of the vehicle you want to retrieve</td>
+									</tr>
+								</tbody>
+							</table>                	
+		                	<h3>On SUCCESS</h3> 
+		                	<div class="status">Status <span class="s20x">200</span></div>
+		                	<pre class="bg-success">{
+   "success":true,
+   "trip_points":[
+      {
+         "manufID":xxx,
+         "tripID":yyy,...
+      },
+      {
+         "manufID":xxx,
+         "tripID":yyy,...
+      },
+      .
+      .
+      .,
+      {
+         "manufID":xxx,
+         "tripID":yyy,...
+      }
+  	]
+}</pre>
+		                	<h3>On FAILURE</h3>
+		                	<div class="status">Status <span class="s40x">404</span></div>
+		                	<pre class="bg-danger">{"success":false,"error":"Could not find trip points for trip with id=<span>ID</span>"}</pre>
+		                	<p>Something went wrong on our server.</p>
+		                	<div class="status">Status <span class="s50x">500</span></div>
+		                	<pre class="bg-danger">{"success":false,"error":"Internal server error"}</pre>
+		                	<p>Something went wrong on our server.</p>          	
+	                	</div>
+	                	<div class="col-md-6">
+	                		<h3>Shell</h3>
+		                	<pre class="shell">curl "http://api.hermes-v.com/api/v1/trips/<span>ID</span>/points" -H "Accept: application/json" -H "Token: <span>TOKEN</span>"</pre>
+		                	<h3>Javascript</h3>	                	
+		                	<pre></pre>
+	                	</div>  
         			</div>		
         		</div>
             </div>
