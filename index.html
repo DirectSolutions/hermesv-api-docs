@@ -113,6 +113,29 @@
 	                	<p>
 	                		For the request you have to enter your <strong>USERNAME</strong>,  <strong>PASSWORD</strong> and  <strong>COMPANY</strong>
 	                	</p>
+	                	<h3>URL Parameters</h3>
+	                	<table class="table table-bordered table-hover">
+	            			<thead>
+	            				<tr>
+	            					<th>Parameter</th>
+	            					<th>Description</th>
+	            				</tr>
+	            			</thead>
+	            			<tbody>
+								<tr>
+									<td>USERNAME</td>
+									<td>Company username</td>
+								</tr>
+								<tr>
+									<td>PASSWORD</td>
+									<td>Company password</td>
+								</tr>
+								<tr>
+									<td>COMPANY</td>
+									<td>Company Name</td>
+								</tr>
+							</tbody>
+						</table>          
 	                	<h3>On SUCCESS</h3>
 	                	<div class="status">Status <span class="s20x">200</span></div>
 	                	<pre class="bg-success">{"success":true,"token":TOKEN}</pre>  
@@ -130,7 +153,7 @@
                 	<div class="col-md-6">
                 		<h3>Generate Code</h3>
                 		<h3>Shell</h3>
-	                	<pre class="shell">curl "http://api.hermes-v.com/api/v1/authentication" -d "username=USERNAME&password=PASSWORD&company=COMPANY"</pre>
+	                	<pre class="shell">curl "http://api.hermes-v.com/api/v1/authentication/?username=<span>USERNAME</span>&password=<span>PASSWORD</span>&company=<span>COMPANY</span>"</pre>
 	                	<h3>Javascript</h3>	                	
 	                	<pre></pre>
                 	</div>                	
@@ -228,7 +251,7 @@
 									</tr>
 									<tr>
 										<td>system</td>
-										<td>int(11)</td>
+										<td>varchar(100)</td>
 										<td></td>
 									</tr>
 									<tr>
@@ -349,7 +372,7 @@
 					         		</tr>
 						         	<tr>
 						         		<td>deviceIMEI</td>
-										<td>int(11)</td>
+										<td>varchar(100)</td>
 										<td></td>
 					         		</tr>
 						         	<tr>
@@ -389,44 +412,42 @@
 					         		</tr>
 						         	<tr>
 						         		<td>startAtLocation</td>
-										<td>int(11)</td>
+										<td>varchar(100)</td>
 										<td></td>
 					         		</tr>
 						         	<tr>
 						         		<td>stopAtLocation</td>
-										<td>int(11)</td>
+										<td>varchar(100)</td>
+										<td></td>
+					         		</tr>					         		
+						         	<tr>
+						         		<td>startTime</td>
+										<td>int(14)</td>
 										<td></td>
 					         		</tr>
 						         	<tr>
-						         		<td>startTime</td>
-										<td>int(11)</td>
-										<td></td>
-					         		</tr><tr>
-
-						         	<tr>
 						         		<td>stopTime</td>
-										<td>int(11)</td>
+										<td>int(14)</td>
 										<td></td>
-					         		</tr><tr>
-
+					         		</tr>
 						         	<tr>
 						         		<td>startLat</td>
-										<td>int(11)</td>
+										<td>double</td>
 										<td></td>
 					         		</tr>
 						         	<tr>
 						         		<td>startLng</td>
-										<td>int(11)</td>
+										<td>double</td>
 										<td></td>
 					         		</tr>
 						         	<tr>
 						         		<td>stopLat</td>
-										<td>int(11)</td>
+										<td>double</td>
 										<td></td>
 					         		</tr>
 						         	<tr>
 						         		<td>stopLng</td>
-										<td>int(11)</td>
+										<td>double</td>
 										<td></td>
 					         		</tr>
 						         	<tr>
@@ -436,7 +457,7 @@
 					         		</tr>
 						         	<tr>
 						         		<td>sensors</td>
-										<td>int(11)</td>
+										<td>int(4)</td>
 										<td></td>
 					         		</tr>
 								</tbody>
@@ -501,7 +522,7 @@
                 	</div>
                 	<div class="col-md-6">
                 		<h3>Shell</h3>
-	                	<pre class="shell">curl "http://api.hermes-v.com/api/v1/vehicles/" -H "Accept: application/json" -H "Token: TOKEN"</pre>
+	                	<pre class="shell">curl "http://api.hermes-v.com/api/v1/vehicles/" -H "Accept: application/json" -H "Token: <span>TOKEN</span>"</pre>
 	                	<h3>Javascript</h3>	                	
 	                	<pre></pre>
                 	</div>                	
@@ -584,7 +605,7 @@
                 	</div>
                 	<div class="col-md-6">
                 		<h3>Shell</h3>
-	                	<pre class="shell">curl "http://api.hermes-v.com/api/v1/vehicles/ID" -H "Accept: application/json" -H "Token: TOKEN"</pre>
+	                	<pre class="shell">curl "http://api.hermes-v.com/api/v1/vehicles/<span>ID</span>" -H "Accept: application/json" -H "Token: <span>TOKEN</span>"</pre>
 	                	<h3>Javascript</h3>	                	
 	                	<pre></pre>
                 	</div>                	
@@ -617,11 +638,11 @@
 								</tr>
 								<tr>
 									<td>DATE_START</td>
-									<td>Date to show trips from. (YYYY-MM-DD+hh:mm:ss)</td>
+									<td>Date to show trips from. (YYYY-MM-DD hh:mm:ss)</td>
 								</tr>
 								<tr>
 									<td>DATE_STOP</td>
-									<td>Date to show trips up to. (YYYY-MM-DD+hh:mm:ss)</td>
+									<td>Date to show trips up to. (YYYY-MM-DD hh:mm:ss)</td>
 								</tr>
 							</tbody>
 						</table>                	
@@ -659,7 +680,7 @@
                 	</div>
                 	<div class="col-md-6">
                 		<h3>Shell</h3>
-	                	<pre class="shell">curl "http://api.hermes-v.com/api/v1/vehicles/:id/trips/?startTime=DATE_START&stopTime=DATE_STOP" -H "Accept: application/json" -H "Token: TOKEN"</pre>
+	                	<pre class="shell">curl "http://api.hermes-v.com/api/v1/vehicles/<span>ID</span>/trips/?startTime=<span>DATE_START</span>&stopTime=<span>DATE_STOP</span>" -H "Accept: application/json" -H "Token: <span>TOKEN</span>"</pre>
 	                	<h3>Javascript</h3>	                	
 	                	<pre></pre>
                 	</div>                	
@@ -670,16 +691,208 @@
             		<h1>Trips</h1>
             		<div class="row">
 	            		<div class="col-md-6">
-	            			
+	            			<p>
+	            				You can make requests and get info on the trips of the vehicles your <strong>TOKEN</strong> is associated with.
+	            			</p>
+	            			<p>
+	            				You can <a href="#trip-get">request an object containing a trip</a> or <a href="#trip-get-points">the GPS points of a trip</a>.
+	            			</p>
 	        			</div>
-        			</div>		
+        			</div>
+        			<div class="row">
+						<div class="col-md-6">
+							<h3>
+	            				A Trip Object contains:
+	            			</h3>
+		            		<table class="table table-bordered table-hover">
+		            			<thead>
+		            				<tr>
+		            					<th>Attribute</th>
+		            					<th>Type</th>
+		            					<th>Description</th>
+		            				</tr>
+		            			</thead>
+		            			<tbody>
+									<tr>
+										<td>id</td>
+										<td>int(11)</td>
+										<td></td>
+									</tr>
+						         	<tr>
+						         		<td>manufCode</td>
+										<td>int(11)</td>
+										<td></td>
+					         		</tr>
+						         	<tr>
+						         		<td>deviceIMEI</td>
+										<td>varchar(100)</td>
+										<td></td>
+					         		</tr>
+						         	<tr>
+						         		<td>vehicleID</td>
+										<td>int(11)</td>
+										<td></td>
+					         		</tr>
+						         	<tr>
+						         		<td>duration</td>
+										<td>int(11)</td>
+										<td></td>
+					         		</tr>
+						         	<tr>
+						         		<td>maxSpeed</td>
+										<td>int(11)</td>
+										<td></td>
+					         		</tr>
+						        	<tr>
+						        		<td>distance</td>
+										<td>int(11)</td>
+										<td></td>
+					        		</tr>
+						         	<tr>
+						         		<td>idleDuration</td>
+										<td>int(11)</td>
+										<td></td>
+					         		</tr>
+						         	<tr>
+						         		<td>avgSpeed</td>
+										<td>int(11)</td>
+										<td></td>
+					         		</tr>
+						         	<tr>
+						         		<td>score</td>
+										<td>int(11)</td>
+										<td></td>
+					         		</tr>
+						         	<tr>
+						         		<td>startAtLocation</td>
+										<td>varchar(100)</td>
+										<td></td>
+					         		</tr>
+						         	<tr>
+						         		<td>stopAtLocation</td>
+										<td>varchar(100)</td>
+										<td></td>
+					         		</tr>
+						         	<tr>
+						         		<td>startTime</td>
+										<td>int(14)</td>
+										<td></td>
+					         		</tr>
+						         	<tr>
+						         		<td>stopTime</td>
+										<td>int(14)</td>
+										<td></td>
+					         		</tr>
+						         	<tr>
+						         		<td>startLat</td>
+										<td>double</td>
+										<td></td>
+					         		</tr>
+						         	<tr>
+						         		<td>startLng</td>
+										<td>double</td>
+										<td></td>
+					         		</tr>
+						         	<tr>
+						         		<td>stopLat</td>
+										<td>double</td>
+										<td></td>
+					         		</tr>
+						         	<tr>
+						         		<td>stopLng</td>
+										<td>double</td>
+										<td></td>
+					         		</tr>
+						         	<tr>
+						         		<td>manufID</td>
+										<td>int(11)</td>
+										<td></td>
+					         		</tr>
+						         	<tr>
+						         		<td>sensors</td>
+										<td>int(4)</td>
+										<td></td>
+					         		</tr>
+								</tbody>
+							</table>
+						</div>					
+					</div>		
         		</div>
         		<div id="trip-get" class="row">
             		<h2><strong>GET</strong> Trip</h2>
             		<div class="row">
 	            		<div class="col-md-6">
-	            			
-	        			</div>
+		                	<p>
+		                		You can get info for a specific vehicle. The <strong>TOKEN</strong> you provide must have access to the specific vehicle
+		                	</p>
+		                	<p>
+		                		You have to enter a date range in the body of the request. If you do not do so, a 400 error occurs
+		                	</p>
+		                	<h3>URL Parameters</h3>
+		                	<table class="table table-bordered table-hover">
+		            			<thead>
+		            				<tr>
+		            					<th>Parameter</th>
+		            					<th>Description</th>
+		            				</tr>
+		            			</thead>
+		            			<tbody>
+									<tr>
+										<td>TOKEN</td>
+										<td>The token you got via authentication</td>
+									</tr>
+									<tr>
+										<td>ID</td>
+										<td>The id of the vehicle you want to retrieve</td>
+									</tr>
+									<tr>
+										<td>DATE_START</td>
+										<td>Date to show trips from. (YYYY-MM-DD+hh:mm:ss)</td>
+									</tr>
+									<tr>
+										<td>DATE_STOP</td>
+										<td>Date to show trips up to. (YYYY-MM-DD+hh:mm:ss)</td>
+									</tr>
+								</tbody>
+							</table>                	
+		                	<h3>On SUCCESS</h3> 
+		                	<div class="status">Status <span class="s20x">200</span></div>
+		                	<pre class="bg-success">{
+   "success":true,
+   "trip":{
+      "id":0000,
+      "manufCode":1,
+      "deviceIMEI":"86000000000000",
+      "vehicleID":12,
+      "duration":254,
+      "maxSpeed":67,
+      "distance":2104,
+      "idleDuration":33,
+      "avgSpeed":29.82,
+      "score":0.91,
+      "startAtLocation":null,
+      "stopAtLocation":null,
+      "startTime":"20160323130651",
+      "stopTime":"20160323131105",
+      "startLat":null,
+      "startLng":null,
+      "stopLat":null,
+      "stopLng":null,
+      "manufID":380815,
+      "sensors":null
+   }
+}</pre>
+		                	<h3>On FAILURE</h3>
+		                	<div class="status">Status <span class="s50x">500</span></div>
+		                	<pre class="bg-danger">{"success":false,"error":"Internal server error"}</pre>
+		                	<p>Something went wrong on our server.</p>          	
+	                	</div>
+	                	<div class="col-md-6">
+	                		<h3>Shell</h3>
+		                	<pre class="shell">curl "http://api.hermes-v.com/api/v1/trips/ID" -H "Accept: application/json" -H "Token: TOKEN"</pre>
+		                	<h3>Javascript</h3>	                	
+		                	<pre></pre>
+	                	</div>  
         			</div>		
         		</div>
         		<div id="trip-get-points" class="row">

@@ -66,6 +66,9 @@ pre{
 	white-space: -o-pre-wrap;
 	word-wrap: break-word;
 }
+pre:hover span{
+	color:#EC8017;
+}
 .shell{
 	background-color: #333;
 	color: #59DA62;
