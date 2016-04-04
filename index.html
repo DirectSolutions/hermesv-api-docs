@@ -187,17 +187,17 @@
 									<tr>
 										<td>id</td>
 										<td>int(11)</td>
-										<td></td>
+										<td>Auto code</td>
 									</tr>
 									<tr>
 										<td>manufID</td>
 										<td>int(11)</td>
-										<td></td>
+										<td>ID of the vehicle in the manufacturer system (apply for ULU)</td>
 									</tr>
 									<tr>
 										<td>manufCode</td>
 										<td>int(11)</td>
-										<td></td>
+										<td>enumDeviceType <br />0. none<br />1. ULU<br />2. BCE</td>
 									</tr>
 									<tr>
 										<td>deviceIMEI</td>
@@ -242,7 +242,7 @@
 									<tr>
 										<td>filter</td>
 										<td>varchar(200)</td>
-										<td></td>
+										<td>This field is derived from the combination of the other descriptive fields. Used in fast search</td>
 									</tr>
 									<tr>
 										<td>groupID</td>
@@ -252,12 +252,12 @@
 									<tr>
 										<td>system</td>
 										<td>varchar(100)</td>
-										<td></td>
+										<td>e.g. ILION, UNKNOWN</td>
 									</tr>
 									<tr>
 										<td>newErrors</td>
 										<td>varchar(10)</td>
-										<td></td>
+										<td>Not yet used</td>
 									</tr>
 									<tr>
 										<td>lastSignal</td>
@@ -267,22 +267,22 @@
 									<tr>
 										<td>timeZone</td>
 										<td>varchar(100)</td>
-										<td></td>
+										<td>Not yet used</td>
 									</tr>
 									<tr>
 										<td>lng</td>
 										<td>double</td>
-										<td></td>
+										<td>Last position</td>
 									</tr>
 									<tr>
 										<td>lat</td>
 										<td>double</td>
-										<td></td>
+										<td>Last position</td>
 									</tr>
 									<tr>
 										<td>location</td>
 										<td>varchar(100)</td>
-										<td></td>
+										<td>Name of the location (street, number, etc)</td>
 									</tr>
 									<tr>
 										<td>tripScore</td>
@@ -292,7 +292,7 @@
 									<tr>
 										<td>speed</td>
 										<td>int(11)</td>
-										<td></td>
+										<td>Last speed</td>
 									</tr>
 									<tr>
 										<td>tripNo</td>
@@ -317,29 +317,27 @@
 									<tr>
 										<td>movingStatus</td>
 										<td>int(11)</td>
-										<td>
-											0:None, 1:moving, 2:stopped, 3:no signal
-										</td>
+										<td>enumVehicleMovingStatus<br />0. None<br />1. moving<br />2. stopped<br />3. no signal</td>
 									</tr>
 									<tr>
 										<td>sensorStatus</td>
 										<td>varchar(2)</td>
-										<td></td>
+										<td>U=up<br/>D=down</td>
 									</tr>
 									<tr>
 										<td>toDayTrips</td>
 										<td>int(11)</td>
-										<td></td>
+										<td>Today trips number</td>
 									</tr>
 									<tr>
 										<td>yesterdayTrips</td>
 										<td>int(11)</td>
-										<td></td>
+										<td>Yesterday trips number</td>
 									</tr>
 									<tr>
 										<td>sensors</td>
 										<td>int(10)</td>
-										<td></td>
+										<td>Number of sensor move (total number)</td>
 									</tr>
 									<tr>
 										<td>groupName</td>
@@ -365,12 +363,12 @@
 									<tr>
 										<td>id</td>
 										<td>int(11)</td>
-										<td></td>
+										<td>Auto code</td>
 									</tr>
 						         	<tr>
 						         		<td>manufCode</td>
 										<td>int(11)</td>
-										<td></td>
+										<td>enumDeviceType <br />0. none<br />1. ULU<br />2. BCE</td>
 					         		</tr>
 						         	<tr>
 						         		<td>deviceIMEI</td>
@@ -385,32 +383,32 @@
 						         	<tr>
 						         		<td>duration</td>
 										<td>int(11)</td>
-										<td></td>
+										<td>Duration in seconds/td>
 					         		</tr>
 						         	<tr>
 						         		<td>maxSpeed</td>
 										<td>int(11)</td>
-										<td></td>
+										<td>Maximum speed in km/h</td>
 					         		</tr>
 						        	<tr>
 						        		<td>distance</td>
 										<td>int(11)</td>
-										<td></td>
+										<td>Distance in meters</td>
 					        		</tr>
 						         	<tr>
 						         		<td>idleDuration</td>
 										<td>int(11)</td>
-										<td></td>
+										<td>Not yet used (only ULU)</td>
 					         		</tr>
 						         	<tr>
 						         		<td>avgSpeed</td>
 										<td>int(11)</td>
-										<td></td>
+										<td>Average speed (km/h)</td>
 					         		</tr>
 						         	<tr>
 						         		<td>score</td>
 										<td>int(11)</td>
-										<td></td>
+										<td>Only for ULU</td>
 					         		</tr>
 						         	<tr>
 						         		<td>startAtLocation</td>
@@ -460,7 +458,7 @@
 						         	<tr>
 						         		<td>sensors</td>
 										<td>int(4)</td>
-										<td></td>
+										<td>Number of sensor activation in this trip</td>
 					         		</tr>
 								</tbody>
 							</table>
@@ -718,12 +716,12 @@
 									<tr>
 										<td>id</td>
 										<td>int(11)</td>
-										<td></td>
+										<td>Auto code</td>
 									</tr>
 						         	<tr>
 						         		<td>manufCode</td>
 										<td>int(11)</td>
-										<td></td>
+										<td>enumDeviceType <br />0. none<br />1. ULU<br />2. BCE</td>
 					         		</tr>
 						         	<tr>
 						         		<td>deviceIMEI</td>
@@ -738,32 +736,32 @@
 						         	<tr>
 						         		<td>duration</td>
 										<td>int(11)</td>
-										<td></td>
+										<td>Duration in seconds/td>
 					         		</tr>
 						         	<tr>
 						         		<td>maxSpeed</td>
 										<td>int(11)</td>
-										<td></td>
+										<td>Maximum speed in km/h</td>
 					         		</tr>
 						        	<tr>
 						        		<td>distance</td>
 										<td>int(11)</td>
-										<td></td>
+										<td>Distance in meters</td>
 					        		</tr>
 						         	<tr>
 						         		<td>idleDuration</td>
 										<td>int(11)</td>
-										<td></td>
+										<td>Not yet used (only ULU)</td>
 					         		</tr>
 						         	<tr>
 						         		<td>avgSpeed</td>
 										<td>int(11)</td>
-										<td></td>
+										<td>Average speed (km/h)</td>
 					         		</tr>
 						         	<tr>
 						         		<td>score</td>
 										<td>int(11)</td>
-										<td></td>
+										<td>Only for ULU</td>
 					         		</tr>
 						         	<tr>
 						         		<td>startAtLocation</td>
@@ -774,7 +772,7 @@
 						         		<td>stopAtLocation</td>
 										<td>varchar(100)</td>
 										<td></td>
-					         		</tr>
+					         		</tr>					         		
 						         	<tr>
 						         		<td>startTime</td>
 										<td>int(14)</td>
@@ -813,7 +811,7 @@
 						         	<tr>
 						         		<td>sensors</td>
 										<td>int(4)</td>
-										<td></td>
+										<td>Number of sensor activation in this trip</td>
 					         		</tr>
 								</tbody>
 							</table>
@@ -834,7 +832,7 @@
 									<tr>
 										<td>manufID</td>
 										<td>int(11)</td>
-										<td></td>
+										<td>Code of the initial manufacturer for this point</td>
 									</tr>
 						         	<tr>
 						         		<td>tripID</td>
@@ -844,12 +842,12 @@
 						         	<tr>
 						         		<td>manufCode</td>
 										<td>int(8)</td>
-										<td></td>
+										<td>enumDeviceType <br />0. none<br />1. ULU<br />2. BCE</td>
 					         		</tr>
 						         	<tr>
 						         		<td>time</td>
 										<td>varchar(14)</td>
-										<td></td>
+										<td>Format yyyymmddhhmmss<br />hh: 24-based</td>
 					         		</tr>
 						         	<tr>
 						         		<td>lat</td>
@@ -864,7 +862,7 @@
 						         	<tr>
 						         		<td>speed</td>
 										<td>int(11)</td>
-										<td></td>
+										<td>Speed in Km/h</td>
 					         		</tr>
 						         	<tr>
 						         		<td>fuelLevel</td>
@@ -889,7 +887,7 @@
 						         	<tr>
 						         		<td>sensor</td>
 										<td>varchar(2)</td>
-										<td></td>
+										<td>U. up<br />D. down</td>
 					         		</tr>
 								</tbody>
 							</table>
