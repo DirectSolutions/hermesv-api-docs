@@ -58,6 +58,9 @@
 	                    	<li>
 	                    		<a href="#vehicle-trips">GET Vehicle Trips</a>
 	                    	</li>
+	                    	<li>
+	                    		<a href="#vehicle-errors">GET Vehicle Errors</a>
+	                    	</li>
 	                    </ul>
 	                </li>
 	                <li>
@@ -166,7 +169,7 @@
 	            				You can make requests and get info on the vehicles your <strong>TOKEN</strong> is associated with.
 	            			</p>
 	            			<p>
-	            				You can <a href="#vehicles-get">request an object containing a token's vehicles</a>, <a href="#vehicle-get">info on a specific vehicle</a> and <a href="#vehicle-trips">the trips a vehicle has</a>.
+	            				You can <a href="#vehicles-get">request an object containing a token's vehicles</a>, <a href="#vehicle-error">the vehicle's errors</a>, <a href="#vehicle-get">info on a specific vehicle</a> and <a href="#vehicle-trips">the trips a vehicle has</a>.
 	            			</p>
 	        			</div>
         			</div>
@@ -349,6 +352,90 @@
 						</div>
 						<div class="col-md-6">
 							<h3>
+	            				An Error Object contains:
+	            			</h3>
+		            		<table class="table table-bordered table-hover">
+		            			<thead>
+		            				<tr>
+		            					<th>Attribute</th>
+		            					<th>Type</th>
+		            					<th>Description</th>
+		            				</tr>
+		            			</thead>
+		            			<tbody>
+									<tr>
+										<td>id</td>
+										<td>int(11)</td>
+										<td>Auto code</td>
+									</tr>
+						         	<tr>
+						         		<td>manufCode</td>
+										<td>int(11)</td>
+										<td>enumDeviceType <br />0. none<br />1. ULU<br />2. BCE</td>
+					         		</tr>
+						         	<tr>
+						         		<td>ManufID</td>
+										<td>int(11)</td>
+										<td>Error code of original table</td>
+					         		</tr>
+						         	<tr>
+						         		<td>vehicleID</td>
+										<td>int(11)</td>
+										<td></td>
+					         		</tr>
+						         	<tr>
+						         		<td>vehicleManufID</td>
+										<td>int(11)</td>
+										<td>Vehicle code of original table</td>
+					         		</tr>
+						         	<tr>
+						         		<td>deviceIMEI</td>
+										<td>varchar(30)</td>
+										<td></td>
+					         		</tr>
+						        	<tr>
+						        		<td>code</td>
+										<td>varchar(10)</td>
+										<td>DTC Code (e.g P0174)</td>
+					        		</tr>
+						         	<tr>
+						         		<td>description</td>
+										<td>varchar(200)</td>
+										<td></td>
+					         		</tr>
+						         	<tr>
+						         		<td>status</td>
+										<td>varchar(20)</td>
+										<td>PENDING<br />CURRENT<br />PERMANENT<br />CLEAR</td>
+					         		</tr>
+						         	<tr>
+						         		<td>createTime</td>
+										<td>varchar(14)</td>
+										<td>yyyyMMddHHmmss</td>
+					         		</tr>
+						         	<tr>
+						         		<td>updateTime</td>
+										<td>varchar(14)</td>
+										<td>yyyyMMddHHmmss</td>
+					         		</tr>
+						         	<tr>
+						         		<td>clearTime</td>
+										<td>varchar(14)</td>
+										<td>yyyyMMddHHmmss</td>
+					         		</tr>					         		
+						         	<tr>
+						         		<td>lastOccurenceTime</td>
+										<td>varchar(14)</td>
+										<td>Last time sent<br />yyyyMMddHHmmss</td>
+					         		</tr>
+						         	<tr>
+						         		<td>count</td>
+										<td>int(11)</td>
+										<td>How many times it is enabled</td>
+					         		</tr>						         	
+								</tbody>
+							</table>
+							<h3>
 	            				A Trip Object contains:
 	            			</h3>
 		            		<table class="table table-bordered table-hover">
@@ -383,7 +470,7 @@
 						         	<tr>
 						         		<td>duration</td>
 										<td>int(11)</td>
-										<td>Duration in seconds/td>
+										<td>Duration in seconds</td>
 					         		</tr>
 						         	<tr>
 						         		<td>maxSpeed</td>
@@ -681,6 +768,71 @@
                 	<div class="col-md-6">
                 		<h3>Shell</h3>
 	                	<pre class="shell">curl "http://api.hermes-v.com/api/v1/vehicles/<span>ID</span>/trips/?startTime=<span>DATE_START</span>&stopTime=<span>DATE_STOP</span>" -H "Accept: application/json" -H "Token: <span>TOKEN</span>"</pre>
+	                	<h3>Javascript</h3>	                	
+	                	<pre></pre>
+                	</div>                	
+             	</div>
+
+             	<div id="vehicle-errors" class="row">
+            		<h2><strong>GET</strong> Vehicle Errors</h2>
+                	<div class="col-md-6">
+	                	<p>
+	                		You can get all errors of the vehicle with a specific <strong>ID</strong>. 
+	                	</p>
+	                	<h3>URL Parameters</h3>
+	                	<table class="table table-bordered table-hover">
+	            			<thead>
+	            				<tr>
+	            					<th>Parameter</th>
+	            					<th>Description</th>
+	            				</tr>
+	            			</thead>
+	            			<tbody>
+								<tr>
+									<td>TOKEN</td>
+									<td>The token you got via authentication</td>
+								</tr>
+								<tr>
+									<td>ID</td>
+									<td>The id of the vehicle you want to retrieve</td>
+								</tr>
+							</tbody>
+						</table>                	
+	                	<h3>On SUCCESS</h3> 
+	                	<div class="status">Status <span class="s20x">200</span></div>
+	                	<pre class="bg-success">
+{
+   	"success":true,
+   	"errors":[
+      	{
+         	"id":xx,
+        	"manufCode":yy, ...
+      	},
+      	{
+         	"id":xx,
+         	"manufCode":yy, ...
+      	},
+      	.
+      	.
+      	.,
+      	{
+         	"id":xx,
+         	"manufCode":yy, ...
+      	}
+	]
+}
+      </pre>
+	                	<h3>On FAILURE</h3>
+	                	<div class="status">Status <span class="s40x">404</span></div>
+	                	<pre class="bg-danger">{"success":false,"error":"No Errors"}</pre>
+	                	<p>No Errors found for the vehicle</p>
+	                	<div class="status">Status <span class="s50x">500</span></div>
+	                	<pre class="bg-danger">{"success":false,"error":"Internal server error"}</pre>
+	                	<p>Something went wrong on our server.</p>          	
+                	</div>
+                	<div class="col-md-6">
+                		<h3>Shell</h3>
+	                	<pre class="shell">curl "http://api.hermes-v.com/api/v1/vehicles/<span>ID</span>/errors" -H "Accept: application/json" -H "Token: <span>TOKEN</span>"</pre>
 	                	<h3>Javascript</h3>	                	
 	                	<pre></pre>
                 	</div>                	
